@@ -1,0 +1,10 @@
+#rewrite to subfolder
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_URI} !^/subfolder
+    RewriteCond %{DOCUMENT_ROOT}/subfolder%{REQUEST_URI} -d
+    RewriteRule ^(.*?)/?$ /subfolder/$1/ [L]
+
+    RewriteCond %{REQUEST_URI} !^/subfolder
+    RewriteRule ^(.*)$ /subfolder/$1 [L]
+</IfModule>
